@@ -3,13 +3,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --text-color: #081f3c;
+  --text-secondary-color: #71839c;
+  --blue: #307fe2;
+  --red: #ff0d3b;
+  --green: #00ab84;
+  --yellow: #bf9d00;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--blue);
+  --color-danger: var(--red);
+  --color-alert: var(--yellow);
+  --color-success: var(--green);
+  --color-gray: var(--text-secondary-color);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,9 +28,31 @@
   }
 }
 
+@font-face {
+  font-family: "IRANSansX";
+  src: url("../public/fonts/IRANSansX-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "IRANSansX";
+  src: url("../public/fonts/IRANSansX-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "IRANSansX";
+  src: url("../public/fonts/IRANSansX-DemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "IRANSansX";
+  src: url("../public/fonts/IRANSansX-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  
+  font-family: "IRANSansX", sans-serif;
 }
