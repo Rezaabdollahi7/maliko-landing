@@ -19,6 +19,7 @@
   --color-alert: var(--yellow);
   --color-success: var(--green);
   --color-gray: var(--text-secondary-color);
+  --color-text:var(--text-color)
 }
 
 @media (prefers-color-scheme: dark) {

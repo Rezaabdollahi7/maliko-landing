@@ -1,3 +1,10 @@
+import Navbar from "./components/sections/Navbar";
+import Hero from "./components/sections/Hero";
 export default function Home() {
-  return <h1>hi</h1>;
+  return (
+    <>
+      <Navbar />
+      <Hero />
+    </>
+  );
 }
