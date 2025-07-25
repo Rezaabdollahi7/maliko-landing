@@ -4,6 +4,7 @@ import ProblemSolutionSection from "./components/sections/ProblemSolutionSection
 import AnimationWrapper from "./components/sections/AnimationWrapper";
 import ZoomEffect from "./components/sections/ZoomEffect";
 import Testimonials from "./components/sections/Testimonials";
+import FAQSection from "./components/sections/faq";
 export default function Home() {
   return (
     <>
@@ -13,6 +14,7 @@ export default function Home() {
       {/* <AnimationWrapper /> */}
       <ZoomEffect />
       <Testimonials />
+      <FAQSection />
     </>
   );
 }
