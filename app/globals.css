@@ -76,11 +76,16 @@ body {
     perspective: 2200px;
   }
 }
-
+.custom-underline {
+  position: relative;
+  color: #6026a9;
+}
 .custom-underline::after {
   content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 10;
   width: 91px;
   height: 12px;
   background-image: url(../public/images/undeline.svg);
-  display: inline-block;
 }
