@@ -19,7 +19,7 @@
   --color-alert: var(--yellow);
   --color-success: var(--green);
   --color-gray: var(--text-secondary-color);
-  --color-text:var(--text-color)
+  --color-text: var(--text-color);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -56,4 +56,31 @@
 }
 body {
   font-family: "IRANSansX", sans-serif;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .zoom-img {
+    -webkit-mask-image: url(../public/images/Card.png);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    /* height: 100%; */
+  }
+  .text-stroke {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-width: 2px;
+  }
+
+  .prespective {
+    perspective: 2200px;
+  }
+}
+
+.custom-underline::after {
+  content: "";
+  width: 91px;
+  height: 12px;
+  background-image: url(../public/images/undeline.svg);
+  display: inline-block;
 }
