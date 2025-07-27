@@ -5,6 +5,7 @@ import AnimationWrapper from "./components/sections/AnimationWrapper";
 import ZoomEffect from "./components/sections/ZoomEffect";
 import Testimonials from "./components/sections/Testimonials";
 import FAQSection from "./components/sections/faq";
+import Footer from "./components/sections/Footer";
 export default function Home() {
   return (
     <>
@@ -15,6 +16,7 @@ export default function Home() {
       <ZoomEffect />
       <Testimonials />
       <FAQSection />
+      <Footer />
     </>
   );
 }
