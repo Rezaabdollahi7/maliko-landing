@@ -89,3 +89,9 @@ body {
   height: 12px;
   background-image: url(../public/images/undeline.svg);
 }
+
+.download {
+  background-image: url("../public/images/bg.svg");
+  background-position: center;
+  background-size: cover;
+}
