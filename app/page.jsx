@@ -6,17 +6,22 @@ import ZoomEffect from "./components/sections/ZoomEffect";
 import Testimonials from "./components/sections/Testimonials";
 import FAQSection from "./components/sections/faq";
 import Footer from "./components/sections/Footer";
+import CinematicParallaxStory from "./components/sections/CinematicParallaxStory";
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <Hero />
-      {/* <ProblemSolutionSection /> */}
-      {/* <AnimationWrapper /> */}
+      <div className="min-h-screen">
+        <Navbar />
+        <Hero />
+      </div>
       <ZoomEffect />
-      <Testimonials />
-      <FAQSection />
-      <Footer />
+      <CinematicParallaxStory />
+
+      <div className="relative z-50">
+        <Testimonials />
+        <FAQSection />
+        <Footer />
+      </div>
     </>
   );
 }
