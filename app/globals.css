@@ -95,3 +95,9 @@ body {
   background-position: center;
   background-size: cover;
 }
+
+#features {
+  background-image: url("../public/images/bg2.svg");
+  background-position: center;
+  background-size: cover;
+}

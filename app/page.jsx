@@ -6,6 +6,7 @@ import FAQSection from "./components/sections/faq";
 import Footer from "./components/sections/Footer";
 import CinematicParallaxStory from "./components/sections/CinematicParallaxStory";
 import DownloadCta from "./components/sections/DownloadCta";
+import Features from "./components/sections/Features";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Navbar />
         <Hero />
       </div>
+      <Features />
       <ZoomEffect />
       <CinematicParallaxStory />
 
