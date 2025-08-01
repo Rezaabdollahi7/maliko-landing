@@ -185,7 +185,9 @@ export default function Testimonials() {
                   <div className="relative">
                     <Image
                       src={currentTestimonial.mockup}
-                      alt={`موکاپ ${currentTestimonial.title}`}
+                      alt={`تصویر موکاپ گوشی از بخش ${currentTestimonial.title} در اپلیکیشن مالی‌کو`}
+                      width={256}
+                      height={512}
                       className="w-64 h-128 object-cover rounded-2xl"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl"></div>
@@ -260,7 +262,9 @@ export default function Testimonials() {
                     >
                       <Image
                         src={currentTestimonial.logo}
-                        alt={`${currentTestimonial.user}-img`}
+                        alt={`عکس پروفایل ${currentTestimonial.user}`}
+                        width={64}
+                        height={64}
                         className="w-16 h-16 rounded-full outline-4 outline-primary outline-offset-4"
                       />
                     </motion.div>
@@ -332,6 +336,7 @@ export default function Testimonials() {
                     boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
                   }}
                   whileTap={{ scale: 0.9 }}
+                  aria-label="Previous Testimonial"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.8, duration: 0.5 }}
@@ -347,6 +352,7 @@ export default function Testimonials() {
                     boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
                   }}
                   whileTap={{ scale: 0.9 }}
+                  aria-label="Next Testimonial"
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.8, duration: 0.5 }}
