@@ -124,13 +124,16 @@ export default function ZoomEffect() {
           />
 
           <div className="absolute text-white flex flex-col items-center justify-center">
-            <h1 ref={refs.titleText} className="text-[150px] font-bold">
+            <h1
+              ref={refs.titleText}
+              className="text-5xl lg:text-[150px] font-bold"
+            >
               <span className="text-stroke">داستان</span>
               <span className="text-white font-extrabold"> مالیکو</span>
             </h1>
             <p
               ref={refs.subtitleText}
-              className="font-semibold opacity-75 text-lg text-center bg-white text-primary px-8 py-2 rounded-4xl mt-12"
+              className="font-semibold opacity-75 text-md lg:text-lg text-center bg-white text-primary px-8 py-2 rounded-4xl mt-12"
             >
               یه سفر رویایی به دل دغدغه های مالی مون
             </p>

@@ -1,31 +1,56 @@
-import orbit from "@/public/images/Orbit.svg";
 import cup from "@/public/images/Mockup.png";
 import Image from "next/image";
+import CustomBazarIcon from "../SvgIcons/CustomBazarIcon";
+import CustomDownloadIcon from "../SvgIcons/CustomDownloadIcon";
+import CustomMyketIcon from "../SvgIcons/CustomMyketIcon";
+
 export default function Hero() {
   return (
-    <section className="hero grid grid-cols-5  max-w-7xl mx-auto my-32 px-32 pt-28 pb-32 bg-primary text-white rounded-2xl gap-12 relative ">
-      <div className="col-span-3 flex flex-col gap-y-12">
-        <h3 className="text-xl font-bold ">
-          حساب مالی ای که همیشه واضح است...
+    <section className="hero w-[95%]  grid grid-cols-1 lg:grid-cols-5 max-w-xl lg:max-w-7xl mx-auto my-32 px-12 lg:px-32 pt-28 pb-32 bg-primary text-white rounded-2xl gap-12 relative ">
+      <div className="col-span-1 lg:col-span-3 flex flex-col justify-center gap-y-12 order-2">
+        <h3 className="text-lg md:text-2xl lg:text-2xl font-semibold ">
+          آسودگی مالی با شفافیت بی‌سابقه.
         </h3>
-        <h1 className="text-5xl font-bold ">اپلکیشن مدیریت مالی مالیکو</h1>
-        <p className="text-lg ">
-          سلام این یک تست از نرم افزار حسابداری و مدیریت مالی مالیکو است که توسط
-          رضا و یگانه طراحی و توسعه داده شده است که خیلی هم عالی و خوب است
+        <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold ">
+          مالیکو : مدیریت مالی جامع و صمیمی.
+        </h1>
+        <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify ">
+          خداحافظی با سردرگمی‌های مالی! با مالی‌کو، دیگه هیچ پولی بی‌حساب‌وکتاب
+          نمی‌مونه. تراکنش‌هات رو از پیامک‌های بانکی خودکار ثبت کن، دسته‌بندی
+          کن، آمار ببین و راحت‌تر پس‌انداز کن. دوست مالی شخصی شما، همیشه در
+          جیبتان!
         </p>
-        <button className="bg-white rounded-full px-6 py-2 text-primary w-max font-semibold ">
-          درخواست مشاوره
-        </button>
+        <div className="links-wrapper flex gap-4 flex-wrap">
+          <a
+            href="#"
+            target="_blank"
+            className=" text-md lg:text-base bg-black text-white rounded-xl py-3 w-content px-4 flex gap-3 items-center"
+          >
+            نصب از کافه بازار
+            <CustomBazarIcon />
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            className=" text-md lg:text-base bg-black text-white rounded-xl py-3 w-content px-4 flex gap-3 items-center"
+          >
+            نصب از مایکت
+            <CustomMyketIcon />
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            className=" text-md lg:text-base bg-black text-white rounded-xl py-3 w-content px-4 flex gap-3 items-center"
+          >
+            دانلود مستقیم اپ
+            <CustomDownloadIcon />
+          </a>
+        </div>
       </div>
-      <div className="col-span-2 flex justify-center items-center relative">
-        <Image
-          src={orbit}
-          alt="orbit-img"
-          className="aspect-square size-12/12  "
-        />
+      <div className="col-span-1 lg:col-span-2 flex justify-center items-center relative order-1 lg:order-2 ">
         <Image
           src={cup}
-          className="absolute size-[40rem] rotate-[-5deg] "
+          className=" lg:h-[30rem] w-[20rem] rotate-[-5deg] "
           alt="cup-img"
         />
       </div>
@@ -34,8 +59,9 @@ export default function Hero() {
         <div className="absolute size-6 bg-gray-100 -top-6 right-0  ">
           <div className="bg-primary size-6 rounded-br-4xl"></div>
         </div>
-        <p className="text-text text-3xl font-semibold  ">۸+</p>
-        <p className="text-text text-xl font-bold">سال تجربه</p>
+        <p className="text-text text-xl font-semibold ">ثبت خودکار </p>{" "}
+        {/* سایز فونت رو متناسب با فضای موجود تنظیم کنید */}
+        <p className="text-text text-xl font-bold"> تراکنش های بانکی </p>
         <div className="absolute size-6 bg-gray-100 -left-6 bottom-0  ">
           <div className="bg-primary size-6 rounded-br-4xl"></div>
         </div>
@@ -45,8 +71,9 @@ export default function Hero() {
         <div className="absolute size-6 bg-gray-100 -right-6 top-0  rotate-180">
           <div className="bg-primary size-6 rounded-br-4xl"></div>
         </div>
-        <p className="text-text text-3xl font-semibold  ">۸۰۰+</p>
-        <p className="text-text text-xl font-bold"> کاربر فعال </p>
+        <p className="text-text text-xl font-semibold ">هر تراکنش،</p>{" "}
+        {/* سایز فونت رو متناسب با فضای موجود تنظیم کنید */}
+        <p className="text-text text-xl font-bold">یک قدم به سمت رشد</p>
         <div className="absolute size-6 bg-gray-100 -bottom-6 left-0 rotate-180  ">
           <div className="bg-primary size-6 rounded-br-4xl"></div>
         </div>

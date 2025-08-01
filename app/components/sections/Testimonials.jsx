@@ -117,11 +117,11 @@ export default function Testimonials() {
       >
         {/* Header */}
         <motion.div className="text-center mb-16" variants={itemVariants}>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl lg:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             نظرات <span className="custom-underline mt-2">کاربران</span> درباره
             مالیکو
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-12">
+          <p className="lg:text-xl text-gray-600 max-w-3xl mx-auto mt-12">
             ببین کاربران واقعی درباره هر بخش مالیکو چی می‌گن
           </p>
         </motion.div>

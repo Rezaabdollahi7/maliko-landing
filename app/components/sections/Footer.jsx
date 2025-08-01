@@ -38,8 +38,8 @@ const CustomBazarIcon = () => (
         y2="21.5795"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#99CE40"></stop>
-        <stop offset="1" stop-color="#429251"></stop>
+        <stop stopColor="#99CE40"></stop>
+        <stop offset="1" stopColor="#429251"></stop>
       </linearGradient>
     </defs>
   </svg>
@@ -84,8 +84,8 @@ const CustomInstagramIcon = () => (
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(4.65723 22.0945) scale(26.1094 26.1083)"
       >
-        <stop offset="0.09" stop-color="#FA8F21"></stop>
-        <stop offset="0.78" stop-color="#D82D7E"></stop>
+        <stop offset="0.09" stopColor="#FA8F21"></stop>
+        <stop offset="0.78" stopColor="#D82D7E"></stop>
       </radialGradient>
       <radialGradient
         id="paint1_radial_14661_20112"
@@ -95,8 +95,8 @@ const CustomInstagramIcon = () => (
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(14.1296 22.9905) scale(20.5778 20.577)"
       >
-        <stop offset="0.64" stop-color="#8C3AAA" stop-opacity="0"></stop>
-        <stop offset="1" stop-color="#8C3AAA"></stop>
+        <stop offset="0.64" stopColor="#8C3AAA" stopOpacity="0"></stop>
+        <stop offset="1" stopColor="#8C3AAA"></stop>
       </radialGradient>
     </defs>
   </svg>

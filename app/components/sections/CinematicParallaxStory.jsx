@@ -15,6 +15,7 @@ import friendAnimation from "@/public/animations/Friend.json";
 const CinematicParallaxStory = () => {
   const containerRef = useRef(null);
   const [currentScene, setCurrentScene] = useState(0);
+  const [particles, setParticles] = useState([]); // State برای particles
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -56,6 +57,18 @@ const CinematicParallaxStory = () => {
     [200, 300, 500, 400, 350, 300]
   );
   const aliScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.2, 1]);
+
+  // تولید particles فقط در کلاینت
+  useEffect(() => {
+    const newParticles = [...Array(20)].map((_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      delay: Math.random() * 2,
+      duration: 3 + Math.random() * 2,
+    }));
+    setParticles(newParticles);
+  }, []);
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((progress) => {
@@ -164,18 +177,18 @@ const CinematicParallaxStory = () => {
             ))}
           </div>
 
-          {/* Floating Particles */}
+          {/* Floating Particles - اصلاح شده */}
           <motion.div
             className="absolute inset-0 w-full h-screen pointer-events-none z-10"
             style={{ y: foregroundY }}
           >
-            {[...Array(20)].map((_, i) => (
+            {particles.map((particle) => (
               <motion.div
-                key={i}
+                key={particle.id}
                 className="absolute w-2 h-2 bg-white/30 rounded-full"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
+                  left: `${particle.left}%`,
+                  top: `${particle.top}%`,
                 }}
                 animate={{
                   y: [0, -20, 0],
@@ -183,9 +196,9 @@ const CinematicParallaxStory = () => {
                   scale: [0.5, 1, 0.5],
                 }}
                 transition={{
-                  duration: 3 + Math.random() * 2,
+                  duration: particle.duration,
                   repeat: Infinity,
-                  delay: Math.random() * 2,
+                  delay: particle.delay,
                 }}
               />
             ))}
@@ -272,7 +285,7 @@ const CinematicParallaxStory = () => {
           <div className="absolute inset-0 w-full h-screen flex items-center justify-center z-40 pointer-events-none">
             <div className="text-center text-white px-8">
               <motion.h1
-                className="text-6xl font-bold mb-6"
+                className="text-3xl lg:text-6xl font-bold mb-6"
                 key={`title-${currentScene}`}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -282,7 +295,7 @@ const CinematicParallaxStory = () => {
               </motion.h1>
 
               <motion.h2
-                className="text-2xl mb-8 text-white/80"
+                className="text-xl lg:text-2xl mb-8 text-black"
                 key={`subtitle-${currentScene}`}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -292,7 +305,7 @@ const CinematicParallaxStory = () => {
               </motion.h2>
 
               <motion.p
-                className="text-xl max-w-4xl mx-auto leading-loose bg-black/30 backdrop-blur-sm p-8 rounded-2xl text-right font-normal"
+                className="lg:text-xl max-w-4xl mx-auto leading-loose bg-black/30 backdrop-blur-sm p-8 rounded-2xl text-right font-normal"
                 key={`narration-${currentScene}`}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -333,7 +346,7 @@ const CinematicParallaxStory = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                بیا تو یه رابطه جدی! 💕
+                مالیکویی شو
               </motion.button>
             </motion.div>
           )}

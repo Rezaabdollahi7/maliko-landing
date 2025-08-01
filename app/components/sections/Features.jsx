@@ -227,7 +227,7 @@ export default function Features() {
 
         {/* Animated Features Grid */}
         <motion.div
-          className="features-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16"
+          className="features-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
