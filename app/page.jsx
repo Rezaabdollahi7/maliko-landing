@@ -7,7 +7,7 @@ import Footer from "./components/sections/Footer";
 import CinematicParallaxStory from "./components/sections/CinematicParallaxStory";
 import DownloadCta from "./components/sections/DownloadCta";
 import Features from "./components/sections/Features";
-
+import ArticlesPage from "./components/sections/ArticlesPage";
 export default function Home() {
   return (
     <>
@@ -21,6 +21,7 @@ export default function Home() {
 
       <Testimonials />
       <DownloadCta />
+      <ArticlesPage />
       <FAQSection />
       <Footer />
     </>
