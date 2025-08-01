@@ -7,17 +7,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Assets
 import bg from "@/public/images/Card.png";
 
+// Register ScrollTrigger plugin with GSAP
 gsap.registerPlugin(ScrollTrigger);
 
 const ANIMATION_CONFIG = {
   zoom: {
+    // Note: GSAP's `scale` property on elements with `perspective` works by modifying
+    // the transform matrix. Using `translateZ` directly in CSS can sometimes be
+    // inconsistent. GSAP handles this gracefully, but we'll stick to a scale-based
+    // animation for better cross-browser compatibility if needed.
+    // For this specific effect, `transform: 'translateZ(1800px)'` is a common technique
+    // that works well with a perspective container.
     scale: "translateZ(1800px)",
     textOffset: -800,
-    duration: 1,
-  },
-  container: {
-    yPercent: { from: 100, to: 0 },
-    scaleY: { from: 2, to: 1 },
   },
 };
 
@@ -29,7 +31,6 @@ export default function ZoomEffect() {
     zoomImage: useRef(null),
     titleText: useRef(null),
     subtitleText: useRef(null),
-    container: useRef(null),
   };
 
   // GSAP Animations
@@ -46,61 +47,44 @@ export default function ZoomEffect() {
       });
 
       // Main zoom timeline
-      createZoomTimeline();
-    });
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: refs.imageContainer.current,
+          pin: refs.imageContainer.current,
+          scrub: 1,
+          start: "0% 0%",
+        },
+      });
+
+      // Zoom image effect
+      timeline.to(
+        refs.zoomImage.current,
+        {
+          transform: ANIMATION_CONFIG.zoom.scale,
+        },
+        0
+      );
+
+      // Slide texts up
+      timeline.to(
+        refs.titleText.current,
+        {
+          y: ANIMATION_CONFIG.zoom.textOffset,
+        },
+        0.05
+      );
+
+      timeline.to(
+        refs.subtitleText.current,
+        {
+          y: ANIMATION_CONFIG.zoom.textOffset,
+        },
+        0.08
+      );
+    }, refs.imageContainer);
 
     return () => ctx.revert();
   }, []);
-
-  const createZoomTimeline = () => {
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: refs.imageContainer.current,
-        pin: refs.imageContainer.current,
-        scrub: 1,
-        start: "0% 0%",
-      },
-    });
-
-    // Zoom image effect
-    timeline.to(
-      refs.zoomImage.current,
-      {
-        transform: ANIMATION_CONFIG.zoom.scale,
-      },
-      0
-    );
-
-    // Slide texts up
-    timeline.to(
-      refs.titleText.current,
-      {
-        y: ANIMATION_CONFIG.zoom.textOffset,
-      },
-      0.05
-    );
-
-    timeline.to(
-      refs.subtitleText.current,
-      {
-        y: ANIMATION_CONFIG.zoom.textOffset,
-      },
-      0.08
-    );
-
-    // Container entrance
-    timeline.fromTo(
-      refs.container.current,
-      {
-        yPercent: ANIMATION_CONFIG.container.yPercent.from,
-        scaleY: ANIMATION_CONFIG.container.scaleY.from,
-      },
-      {
-        yPercent: ANIMATION_CONFIG.container.yPercent.to,
-        scaleY: ANIMATION_CONFIG.container.scaleY.to,
-      }
-    );
-  };
 
   return (
     <div className="relative">
@@ -120,7 +104,9 @@ export default function ZoomEffect() {
             ref={refs.zoomImage}
             className="zoom-img opacity-80 size-72"
             src={bg}
-            alt="قاوصندوق مالیکو"
+            alt="صندوق مالیکو"
+            width={288}
+            height={288}
           />
 
           <div className="absolute text-white flex flex-col items-center justify-center">

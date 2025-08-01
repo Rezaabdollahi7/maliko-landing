@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Download, ChevronLeft, Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
@@ -100,7 +102,7 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Social Media Section */}
+        {/* Social Media and App Download Section */}
         <div className="mt-12 pt-8  grid  grid-cols-1 lg:grid-cols-4 gap-8">
           <div className=" col-span-1 text-center bg-[#F1EEFB] rounded-lg p-4 flex-1 flex flex-col items-center">
             <h3 className="text-lg font-bold text-gray-900 mb-6">
@@ -112,6 +114,7 @@ const Footer = () => {
                   key={index}
                   href="#"
                   className={`p-3 bg-white rounded-xl border flex items-center justify-center border-gray-200   hover:shadow-md transition-all duration-200 size-12`}
+                  aria-label={social.name}
                 >
                   {social.icon}
                 </a>
@@ -150,7 +153,13 @@ const Footer = () => {
             {/* Logo and Company Name */}
             <div className="flex  items-center gap-4">
               <div className="w-12 h-12 ">
-                <Image className=" rounded-lg" src={Logo} alt="maliko-logo" />
+                <Image
+                  className="rounded-lg"
+                  src={Logo}
+                  alt="لوگوی مالیکو"
+                  width={48}
+                  height={48}
+                />
               </div>
               <div>
                 <h4 className="text-lg font-bold text-gray-900">مالیکو</h4>
@@ -175,7 +184,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Company Description */}
+          {/* Company Description and Enamad Logo */}
           <div className="mt-8 pt-6 border-t border-gray-300 flex flex-col gap-4 lg:flex-row justify-between items-center">
             <p className="text-center text-sm text-gray-500 leading-relaxed  max-w-4xl">
               در حال حاضر متشکل از یازده شرکت تخصصی و بیش از 300 پرسنل فعال است
@@ -183,7 +192,12 @@ const Footer = () => {
               - خیابان شهید بهشتی، بین تجریش و ولیعصر، شماره 880، ساختمان نگین
               آزادی - طبقه 3
             </p>
-            <Image src={enemadLogo} alt="Enamad-logo" />
+            <Image
+              src={enemadLogo}
+              alt="لوگوی نماد اعتماد الکترونیکی (اینماد)"
+              width={70}
+              height={70}
+            />
           </div>
         </div>
       </div>

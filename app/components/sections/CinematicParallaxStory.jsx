@@ -9,7 +9,7 @@ import scenes from "@/app/constants/scenes";
 const CinematicParallaxStory = () => {
   const containerRef = useRef(null);
   const [currentScene, setCurrentScene] = useState(0);
-  const [particles, setParticles] = useState([]); // State برای particles
+  const [particles, setParticles] = useState([]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -54,6 +54,7 @@ const CinematicParallaxStory = () => {
 
   // تولید particles فقط در کلاینت
   useEffect(() => {
+    // Generate particles only once on component mount
     const newParticles = [...Array(20)].map((_, i) => ({
       id: i,
       left: Math.random() * 100,
@@ -64,24 +65,33 @@ const CinematicParallaxStory = () => {
     setParticles(newParticles);
   }, []);
 
+  // Update current scene based on scroll progress
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((progress) => {
-      if (progress < 0.15) setCurrentScene(0);
-      else if (progress < 0.35) setCurrentScene(1);
-      else if (progress < 0.55) setCurrentScene(2);
-      else if (progress < 0.75) setCurrentScene(3);
-      else if (progress < 0.95) setCurrentScene(4);
-      else setCurrentScene(5);
+      if (progress < 0.15) {
+        setCurrentScene(0);
+      } else if (progress < 0.35) {
+        setCurrentScene(1);
+      } else if (progress < 0.55) {
+        setCurrentScene(2);
+      } else if (progress < 0.75) {
+        setCurrentScene(3);
+      } else if (progress < 0.95) {
+        setCurrentScene(4);
+      } else {
+        setCurrentScene(5);
+      }
     });
 
+    // Cleanup function to remove the listener
     return () => unsubscribe();
   }, [scrollYProgress]);
 
   return (
     <section className="relative">
-      {/* Story Container */}
+      {/* Story Container - This element determines the scroll length */}
       <div ref={containerRef} className="relative h-[600vh]">
-        {/* Sticky Viewport */}
+        {/* Sticky Viewport - All visual elements are inside this */}
         <div className="sticky top-0 w-full h-screen overflow-hidden">
           {/* Progress Bar */}
           <motion.div
@@ -114,7 +124,7 @@ const CinematicParallaxStory = () => {
             ))}
           </div>
 
-          {/* Floating Particles - اصلاح شده */}
+          {/* Floating Particles */}
           <motion.div
             className="absolute inset-0 w-full h-screen pointer-events-none z-10"
             style={{ y: foregroundY }}
@@ -167,17 +177,8 @@ const CinematicParallaxStory = () => {
                   },
                 }}
               >
-                {currentScene === 0
-                  ? "😱"
-                  : currentScene === 1
-                  ? "🤝"
-                  : currentScene === 2
-                  ? "🎧"
-                  : currentScene === 3
-                  ? "😎"
-                  : currentScene === 4
-                  ? "📊"
-                  : "❤️"}
+                {/* Emojis for different scenes */}
+                {scenes[currentScene]?.emoji}
               </motion.div>
             </motion.div>
           </motion.div>

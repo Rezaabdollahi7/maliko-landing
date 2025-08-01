@@ -25,6 +25,9 @@ export default function FAQSection() {
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 سوالات <span className="custom-underline">متداول</span>
               </h2>
+              <p className="mt-8 text-lg text-gray-600">
+                در این قسمت به پرتکرارترین سوالات شما پاسخ داده‌ایم.
+              </p>
             </div>
 
             {/* FAQ Items */}
@@ -41,6 +44,8 @@ export default function FAQSection() {
                   <motion.button
                     className="w-full px-6 py-5 text-right flex items-center justify-between hover:bg-gray-100 transition-colors duration-200 hover:cursor-pointer"
                     onClick={() => toggleItem(item.id)}
+                    aria-expanded={openItem === item.id}
+                    aria-controls={`faq-answer-${item.id}`}
                     whileHover={{ backgroundColor: "rgb(243 244 246)" }}
                     whileTap={{ scale: 0.99 }}
                   >
@@ -64,6 +69,9 @@ export default function FAQSection() {
                   <AnimatePresence>
                     {openItem === item.id && (
                       <motion.div
+                        id={`faq-answer-${item.id}`}
+                        role="region"
+                        aria-labelledby={`faq-question-${item.id}`}
                         className="px-6 pb-5"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{
