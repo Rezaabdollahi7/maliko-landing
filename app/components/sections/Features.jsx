@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import features from "@/app/constants/features";
 
 // Container Animation Variants
@@ -126,7 +127,6 @@ export default function Features() {
       className="w-full bg-gray-200 flex min-h-screen py-16 lg:py-0"
     >
       <div className="container mx-auto flex flex-col justify-center items-center gap-y-12">
-        {/* Animated Header */}
         <motion.h2
           className="text-4xl font-bold text-black/80"
           variants={headerVariants}
@@ -146,7 +146,6 @@ export default function Features() {
           </motion.span>
         </motion.h2>
 
-        {/* Animated Subtitle */}
         <motion.p
           className="text-lg text-gray-400 font-semibold"
           variants={subtitleVariants}
@@ -157,7 +156,6 @@ export default function Features() {
           مهم ترین چیز هایی که با ما به دست میاری
         </motion.p>
 
-        {/* Animated Features Grid */}
         <motion.div
           className="features-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-16"
           variants={containerVariants}
@@ -165,7 +163,7 @@ export default function Features() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {features.map((feat, index) => (
+          {features.map((feat) => (
             <motion.div
               key={feat.id}
               className="col-span-1 rounded-3xl bg-white flex items-center justify-start py-4 pe-20 ps-4 gap-4 cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-200"
@@ -173,7 +171,6 @@ export default function Features() {
               whileHover="hover"
               whileTap="tap"
             >
-              {/* Animated Icon */}
               <motion.div
                 variants={iconVariants}
                 whileHover="hover"
@@ -181,12 +178,13 @@ export default function Features() {
               >
                 <Image
                   className="size-12 rounded-xl"
-                  alt={`${feat.title}-icon`}
+                  alt={`آیکون ویژگی ${feat.title}`}
                   src={feat.icon}
+                  width={48}
+                  height={48}
                 />
               </motion.div>
 
-              {/* Animated Text */}
               <motion.span
                 className="font-normal text-gray-700"
                 variants={textVariants}
